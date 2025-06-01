@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Medidas Culinárias</title>
+  <link rel="stylesheet" href="dist/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Conversor de Medidas</h1>
+
+    <label for="tipo">Tipo de conversão:</label>
+    <select id="tipo">
+      <option value="g_para_xic_colher">Gramas → Xícaras / Colheres</option>
+      <option value="xic_para_g_colher">Xícaras → Gramas / Colheres</option>
+      <option value="colher_para_g_xic">Colheres → Gramas / Xícaras</option>
+    </select>
+
+    <label for="ingrediente">Ingrediente:</label>
+    <select id="ingrediente">
+      <option value="farinha">Farinha</option>
+      <option value="açúcar">Açúcar</option>
+      <option value="manteiga">Manteiga</option>
+      <option value="leite">Leite</option>
+      <option value="oleo">Óleo</option>
+    </select>
+
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" step="0.1" min="0">
+
+    <button onclick="converter()">Converter</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script src="dist/js/conversor.min.js"></script>
+</body>
+</html>
