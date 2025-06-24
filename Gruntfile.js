@@ -2,37 +2,35 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    less: {
-      development: {
-        files: {
-          "dist/css/style.css": "css/style.less"
-        }
-      }
-    },
-
-    uglify: {
-      build: {
-        files: {
-          'dist/js/conversor.min.js': ['js/conversor.js']
-        }
-      }
-    },
-
     watch: {
-      styles: {
-        files: ['css/*.less'],
-        tasks: ['less']
+      options: {
+        livereload: true,
       },
-      scripts: {
-        files: ['js/*.js'],
-        tasks: ['uglify']
-      }
-    }
+      html: {
+        files: ['index.html'],
+      },
+      css: {
+        files: ['style.css'],
+      },
+      js: {
+        files: ['conversor.js'],
+      },
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: '.',
+          livereload: true,
+          open: true,
+        },
+      },
+    },
   });
 
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('default', ['less', 'uglify']);
+  grunt.registerTask('default', ['connect', 'watch']);
 };

@@ -1,38 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Conversor de Medidas Culinárias</title>
-  <link rel="stylesheet" href="dist/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozinha na Medida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+
 </head>
-<body>
-  <div class="container">
-    <h1>Conversor de Medidas</h1>
+<body class="bg-gradient-to-br from-amber-50 to-orange-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full text-center border-b-8 border-orange-700">
+        <div class="mb-8">
+            <h1 class="text-5xl font-extrabold text-orange-800 mb-3 drop-shadow-lg">Cozinha na Medida</h1>
+            <p class="text-gray-700 text-xl font-light">Converta suas medidas de forma fácil e precisa!</p>
+        </div>
 
-    <label for="tipo">Tipo de conversão:</label>
-    <select id="tipo">
-      <option value="g_para_xic_colher">Gramas → Xícaras / Colheres</option>
-      <option value="xic_para_g_colher">Xícaras → Gramas / Colheres</option>
-      <option value="colher_para_g_xic">Colheres → Gramas / Xícaras</option>
-    </select>
+        <div class="space-y-6 mb-8">
+            <div class="bg-gray-50 p-5 rounded-xl shadow-inner border border-gray-200">
+                <label for="tipo" class="block text-gray-800 text-lg font-semibold mb-3">Tipo de conversão:</label>
+                <select id="tipo" class="w-full p-3.5 border border-gray-300 rounded-lg bg-white shadow-sm text-gray-700 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition">
+                    <option value="g_para_xic_colher">Gramas → Xícaras / Colheres</option>
+                    <option value="xic_para_g_colher">Xícaras → Gramas / Colheres</option>
+                    <option value="colher_para_g_xic">Colheres → Gramas / Xícaras</option>
+                </select>
+            </div>
 
-    <label for="ingrediente">Ingrediente:</label>
-    <select id="ingrediente">
-      <option value="farinha">Farinha</option>
-      <option value="açúcar">Açúcar</option>
-      <option value="manteiga">Manteiga</option>
-      <option value="leite">Leite</option>
-      <option value="oleo">Óleo</option>
-    </select>
+            <div class="bg-gray-50 p-5 rounded-xl shadow-inner border border-gray-200">
+                <label for="ingrediente" class="block text-gray-800 text-lg font-semibold mb-3">Ingrediente:</label>
+                <select id="ingrediente" class="w-full p-3.5 border border-gray-300 rounded-lg bg-white shadow-sm text-gray-700 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition">
+                    <option value="farinha">Farinha de Trigo</option>
+                    <option value="acucar">Açúcar</option>
+                    <option value="manteiga">Manteiga</option>
+                    <option value="leite">Leite</option>
+                    <option value="oleo">Óleo</option>
+                    <option value="arroz">Arroz (cru)</option>
+                    <option value="aveia">Aveia (flocos finos)</option>
+                    <option value="mel">Mel</option>
+                    <option value="iogurte">Iogurte</option>
+                    <option value="chocolate_po">Chocolate em Pó</option>
+                    <option value="maisena">Maisena (Amido de Milho)</option>
+                    <option value="sal">Sal</option>
+                    <option value="ovo_grande">Ovo Grande (sem casca)</option>
+                    <option value="fermento_po">Fermento em Pó</option>
+                    <option value="passas">Passas</option>
+                </select>
+            </div>
 
-    <label for="quantidade">Quantidade:</label>
-    <input type="number" id="quantidade" step="0.1" min="0">
+            <div class="bg-gray-50 p-5 rounded-xl shadow-inner border border-gray-200">
+                <label for="quantidade" class="block text-gray-800 text-lg font-semibold mb-3">Quantidade:</label>
+                <input type="number" id="quantidade" step="0.1" min="0" placeholder="Digite a quantidade aqui..." class="w-full p-3.5 border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition">
+            </div>
+        </div>
 
-    <button onclick="converter()">Converter</button>
+        <button id="converterBtn" class="w-full py-4 px-6 bg-orange-600 text-white text-xl font-bold rounded-lg shadow-lg hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-500 focus:ring-opacity-70 transition transform hover:scale-105 active:scale-95">
+            Converter Medidas
+        </button>
 
-    <div id="resultado"></div>
-  </div>
+        <div id="resultado" class="mt-8 p-7 bg-orange-100 border border-orange-300 text-orange-800 rounded-xl text-xl font-medium leading-relaxed shadow-md hidden">
+        </div>
+        <div id="error-message" class="mt-4 p-5 bg-red-100 border border-red-300 text-red-700 rounded-lg shadow-sm hidden">
+        </div>
+    </div>
 
-  <script src="dist/js/conversor.min.js"></script>
+    <script src="js/conversor.js"></script>
+
 </body>
 </html>
